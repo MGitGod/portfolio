@@ -23,11 +23,21 @@ function navigateToPage(targetId) {
         onComplete: () => {
             // スキルページの場合、プログレスバーをアニメーション
             if (targetId === 'skill') {
-                gsap.from('.progress', {
-                    width: 0,
-                    duration: 1,
-                    ease: 'power2.out',
-                    stagger: 0.2
+                // プログレスバーの初期化
+                gsap.set('.progress', {
+                    width: 0
+                });
+                
+                // プログレスバーのアニメーション
+                const progressBars = document.querySelectorAll('.progress');
+                progressBars.forEach((bar, index) => {
+                    const level = bar.getAttribute('data-level');
+                    gsap.to(bar, {
+                        width: `${level * 20}%`,
+                        duration: 1,
+                        ease: 'power2.out',
+                        delay: index * 0.2
+                    });
                 });
             }
         }
@@ -122,4 +132,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 3000);
         });
     }
+});
+
+// ハンバーガーメニューの制御
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // メニューリンクをクリックした時にメニューを閉じる
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
 });
