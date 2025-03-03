@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ポートフォリオ</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">STUDIO 21G</div>
+      <ul>
+        <li><a data-target="about">About Me</a></li>
+        <li><a data-target="work">Work</a></li>
+        <li><a data-target="skill">Skill</a></li>
+        <li><a data-target="contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div id="intro">
+      <div class="intro-text">
+        <div class="text-line">👋 Hi, I'm <span class="accent-color">M</span>oto.</div>
+        <div class="text-line">
+          Web Application, Mobile Application Developer.
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <section id="about" class="page">
+        <div class="about-me">
+          <h2>About Me</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum quod
+            quo quas numquam expedita rerum, in adipisci. Ratione cum, dolore
+            accusamus unde, itaque vero iure voluptatum quam iste, magni ex?
+          </p>
+        </div>
+        <div class="social-links">
+          <a href="#" target="_blank">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </section>
+      <section id="work" class="page">
+        <svg class="work-text" viewBox="0 0 400 100">
+          <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">
+            Work
+          </text>
+        </svg>
+      </section>
+      <section id="skill" class="page">
+        <div class="skill-container">
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="devicon-html5-plain" style="color: var(--fg-color);"></i>
+              <span>HTML5</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" data-level="4"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="devicon-css3-plain"></i>
+              <span>CSS3</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" data-level="4"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="devicon-javascript-plain"></i>
+              <span>JavaScript</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" data-level="3"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-info">
+              <i class="devicon-react-original"></i>
+              <span>React</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" data-level="2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="page">
+        <div class="contact-container">
+          <h2>Contact Me</h2>
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

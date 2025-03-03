@@ -1,0 +1,471 @@
+:root {
+  --bg-color: #3a3c3f;
+  --fg-color: #acad9c;
+  --accent-color: #e67650;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  overflow: hidden;
+}
+nav {
+  width: 100%;
+  background: var(--bg-color);
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+.logo {
+  color: var(--accent-color);
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.accent-color {
+    color: var(--accent-color);
+}
+.about-me {
+    margin: 0 64px;
+    font-size: 64px;
+    color:rgba(0,0,0,.0);
+    -webkit-text-stroke: var(--fg-color) 1px;
+}
+h2 {
+    margin-bottom: 1rem;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  margin-right: 20px;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: var(--fg-color);
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: translateY(100%);
+}
+#intro {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.intro-text {
+  text-align: center;
+  line-height: 1.5;
+  padding: 0 2rem;
+}
+
+.text-line {
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--fg-color);
+  opacity: 0;
+  filter: blur(10px);
+}
+/* #about, #work, #skill, #contact の部分を修正 */
+#about {
+  background-color: var(--bg-color);
+}
+#work {
+  background-color: var(--bg-color);
+}
+#skill {
+  background-color: var(--bg-color);
+}
+#contact {
+  background-color: var(--bg-color);
+}
+
+.skill-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+  width: 80%;
+  max-width: 800px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+}
+
+.skill-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 200px;
+}
+
+.skill-item i {
+  font-size: 3rem;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover i {
+  transform: scale(1.1);
+}
+
+.skill-item span {
+  font-size: 1.2rem;
+  color: var(--fg-color);
+  width: 100px;
+}
+
+.progress-bar {
+  flex-grow: 1;
+  height: 10px;
+  background-color: var(--fg-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  transition: width 1s ease;
+}
+
+/* プログレスバーのレベル設定 */
+.progress[data-level="1"] {
+  width: 20%;
+}
+.progress[data-level="2"] {
+  width: 40%;
+}
+.progress[data-level="3"] {
+  width: 60%;
+}
+.progress[data-level="4"] {
+  width: 80%;
+}
+.progress[data-level="5"] {
+  width: 100%;
+}
+
+/* Contact page styles */
+.contact-container {
+  width: 80%;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.contact-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  color: var(--fg-color);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 1rem;
+  color: var(--fg-color);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem;
+  border: 2px solid var(--fg-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submit-btn:hover {
+  background-color: var(--accent-color);
+}
+
+/* フォームの入力検証スタイル */
+.form-group input:invalid,
+.form-group textarea:invalid {
+  border-color: #ff6b6b;
+}
+
+/* プレースホルダーのスタイル */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #999;
+}
+
+.social-links {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  text-decoration: none;
+  color: var(--fg-color);
+  transition: all 0.3s ease;
+}
+
+.social-links i {
+  font-size: 2rem;
+}
+
+.social-links a:hover {
+  transform: translateY(-5px);
+  color: var(--accent-color);
+}
+
+/* 各アイコンの個別のホバーカラー */
+.social-links a:hover .fa-x-twitter,
+.social-links a:hover .fa-instagram,
+.social-links a:hover .fa-github {
+  color: var(--accent-color);
+}
+
+.work-text {
+    /* width: 80vw;
+    height: auto;
+    transform: translateX(-30%); */
+    position: absolute;
+    top: 10%;
+    left: -30%;
+}
+
+.work-text text {
+    font-size: 100px;
+    font-weight: bold;
+    fill: none;
+    stroke: var(--fg-color);
+    stroke-width: 1;
+}
+
+/* レスポンシブ対応のためのメディアクエリ */
+@media screen and (max-width: 768px) {
+    /* ナビゲーション */
+    nav {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    .logo {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    nav ul {
+        margin: 0;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    nav ul li a {
+        font-size: 16px;
+    }
+
+    /* イントロテキスト */
+    .text-line {
+        font-size: 2.5rem;
+    }
+
+    /* About Me */
+    .about-me {
+        margin: 0 20px;
+        font-size: 32px;
+    }
+
+    /* Work テキスト */
+    .work-text {
+        width: 100%;
+        left: 0;
+    }
+
+    .work-text text {
+        font-size: 60px;
+    }
+
+    /* スキルセクション */
+    .skill-container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .skill-item {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .skill-info {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    /* コンタクトフォーム */
+    .contact-container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .contact-container h2 {
+        font-size: 2rem;
+    }
+
+    /* ソーシャルリンク */
+    .social-links {
+        bottom: 1rem;
+        right: 1rem;
+        gap: 1rem;
+    }
+
+    .social-links i {
+        font-size: 1.5rem;
+    }
+}
+
+/* さらに小さい画面用 */
+@media screen and (max-width: 480px) {
+    /* イントロテキスト */
+    .text-line {
+        font-size: 1.8rem;
+    }
+
+    /* ナビゲーション */
+    nav ul li {
+        margin: 0 5px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+    }
+
+    /* Work テキスト */
+    .work-text text {
+        font-size: 40px;
+    }
+
+    /* スキルアイコン */
+    .skill-item i {
+        font-size: 2rem;
+    }
+
+    .skill-item span {
+        font-size: 1rem;
+    }
+
+    /* コンタクトフォーム */
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.6rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* 高さが低い画面用 */
+@media screen and (max-height: 600px) {
+    .text-line {
+        font-size: 2rem;
+    }
+
+    .skill-container {
+        gap: 1.5rem;
+    }
+
+    .contact-container {
+        padding-top: 4rem;
+    }
+}
