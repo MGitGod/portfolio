@@ -207,6 +207,7 @@ nav ul li a {
 
 .contact-container h2 {
   text-align: center;
+  margin-top: 10px;
   margin-bottom: 1rem;
   font-size: 2.5rem;
   color: var(--fg-color);
@@ -695,7 +696,7 @@ nav ul li a {
     }
 }
 
-/* About section layout - デスクトップ */
+/* About section base styles */
 #about {
     background-color: var(--bg-color);
     display: grid;
@@ -708,10 +709,35 @@ nav ul li a {
     min-height: 100vh;
 }
 
+/* About title styles */
+.about-me {
+    margin: 0;
+    font-size: 64px;
+    color: rgba(0,0,0,.0);
+    -webkit-text-stroke: var(--fg-color) 1px;
+    line-height: 0.6;
+    position: absolute;
+    left: calc(20vw - 150px);
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center center;
+}
+
+.about-me h1 {
+    transition: opacity 0.3s ease;
+}
+
+.about-me h1:nth-child(2) {
+    color: var(--fg-color);
+    -webkit-text-stroke: none;
+    margin: 15px 0;
+}
+
+/* About content styles */
 .about-content {
     grid-area: content;
     width: 100%;
-    padding: 1rem;
+    padding: 2rem;
     color: var(--fg-color);
     display: flex;
     flex-direction: column;
@@ -732,12 +758,31 @@ nav ul li a {
     margin-bottom: 0;
 }
 
-/* About Me のスタイル修正 */
-.about-me h1 {
-    transition: opacity 0.3s ease;  /* スムーズな切り替えのため */
+/* Social links styles */
+.social-links {
+    grid-area: social;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
 
-/* タブレット・スマホ用メディアクエリ */
+.social-links a {
+    text-decoration: none;
+    color: var(--fg-color);
+    transition: all 0.3s ease;
+}
+
+.social-links i {
+    font-size: 2rem;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    color: var(--accent-color);
+}
+
+/* Responsive styles */
 @media screen and (max-width: 768px) {
     #about {
         grid-template-columns: 1fr;
@@ -747,15 +792,24 @@ nav ul li a {
             "social";
         padding: 2rem;
         gap: 2rem;
-        min-height: 100vh;
-        justify-content: center;
     }
 
     .about-me {
+        position: relative;
+        left: auto;
         transform: none;
         font-size: 48px;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 5rem;
+    }
+
+    .about-me h1:first-child,
+    .about-me h1:last-child {
+        display: none;
+    }
+
+    .about-me h1:nth-child(2) {
+        margin: 0;
     }
 
     .about-content {
@@ -766,28 +820,15 @@ nav ul li a {
 
     .about-content p {
         font-size: 0.95rem;
-        margin-bottom: 1rem;
         line-height: 1.6;
+        margin-bottom: 1rem;
     }
 
     .social-links {
-        margin-top: 1rem;
         padding-bottom: 2rem;
-    }
-
-    /* 1番目と3番目のh1を非表示 */
-    .about-me h1:first-child,
-    .about-me h1:last-child {
-        display: none;
-    }
-
-    /* 2番目のh1のみ表示 */
-    .about-me h1:nth-child(2) {
-        margin: 0;  /* マージンをリセット */
     }
 }
 
-/* さらに小さい画面用 */
 @media screen and (max-width: 480px) {
     #about {
         padding: 1.5rem 1rem;
@@ -796,7 +837,6 @@ nav ul li a {
 
     .about-me {
         font-size: 36px;
-        margin-bottom: 1.5rem;
     }
 
     .about-content {
@@ -806,13 +846,12 @@ nav ul li a {
 
     .about-content p {
         font-size: 0.9rem;
-        margin-bottom: 0.8rem;
         line-height: 1.5;
+        margin-bottom: 0.8rem;
     }
 
     .social-links {
         gap: 1.5rem;
-        margin-top: 1rem;
         padding-bottom: 1.5rem;
     }
 
