@@ -490,6 +490,17 @@ nav ul li a {
         justify-content: center;
         margin-top: 2rem;
     }
+
+    /* 1番目と3番目のh1を非表示 */
+    .about-me h1:first-child,
+    .about-me h1:last-child {
+        display: none;
+    }
+
+    /* 2番目のh1のみ表示 */
+    .about-me h1:nth-child(2) {
+        margin: 0;  /* マージンをリセット */
+    }
 }
 
 /* さらに小さい画面用 */
@@ -566,8 +577,8 @@ nav ul li a {
         margin-bottom: 1.5rem;
     }
 
-    .about-me h1 {
-        margin: 10px 0;
+    .about-me h1:nth-child(2) {
+        margin: 0 0 1.5rem 0;
     }
 
     .about-content {
@@ -699,4 +710,40 @@ nav ul li a {
 
 .about-content p:last-child {
     margin-bottom: 0;
+}
+
+/* About Me のスタイル修正 */
+.about-me h1 {
+    transition: opacity 0.3s ease;  /* スムーズな切り替えのため */
+}
+
+/* タブレット・スマホ用メディアクエリ */
+@media screen and (max-width: 768px) {
+    .about-me {
+        transform: none;
+        font-size: 48px;
+        text-align: center;
+    }
+
+    /* 1番目と3番目のh1を非表示 */
+    .about-me h1:first-child,
+    .about-me h1:last-child {
+        display: none;
+    }
+
+    /* 2番目のh1のみ表示 */
+    .about-me h1:nth-child(2) {
+        margin: 0;  /* マージンをリセット */
+    }
+}
+
+/* さらに小さい画面用 */
+@media screen and (max-width: 480px) {
+    .about-me {
+        font-size: 36px;
+    }
+
+    .about-me h1:nth-child(2) {
+        margin: 0 0 1.5rem 0;
+    }
 }
