@@ -363,7 +363,7 @@ nav ul li a {
         position: relative;
         left: auto;
         transform: none;
-        margin-bottom: 2rem;
+        margin-bottom: 5rem;
         font-size: 32px;
     }
 
@@ -465,7 +465,7 @@ nav ul li a {
             "content"
             "social";
         padding: 2rem;
-        gap: 1rem;
+        gap: 2rem;
         min-height: 100vh;
         justify-content: center;
     }
@@ -474,12 +474,13 @@ nav ul li a {
         transform: none;
         font-size: 48px;
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
 
     .about-content {
         padding: 1rem;
         justify-content: flex-start;
+        margin-top: 1rem;
     }
 
     .about-content p {
@@ -571,16 +572,17 @@ nav ul li a {
 
     #about {
         padding: 1.5rem 1rem;
-        gap: 0.5rem;
+        gap: 1.5rem;
     }
 
     .about-me {
         font-size: 36px;
-        margin-bottom: 1rem;
+        margin-bottom: 5rem;
     }
 
     .about-content {
         padding: 0.5rem;
+        margin-top: 0.5rem;
     }
 
     .about-content p {
@@ -709,13 +711,14 @@ nav ul li a {
 .about-content {
     grid-area: content;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
     color: var(--fg-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-self: center;
     height: 100%;
+    margin-top: 8rem;
 }
 
 .about-content p {
@@ -743,7 +746,7 @@ nav ul li a {
             "content"
             "social";
         padding: 2rem;
-        gap: 1rem;
+        gap: 2rem;
         min-height: 100vh;
         justify-content: center;
     }
@@ -752,12 +755,13 @@ nav ul li a {
         transform: none;
         font-size: 48px;
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
 
     .about-content {
         padding: 1rem;
         justify-content: flex-start;
+        margin-top: 1rem;
     }
 
     .about-content p {
@@ -787,16 +791,17 @@ nav ul li a {
 @media screen and (max-width: 480px) {
     #about {
         padding: 1.5rem 1rem;
-        gap: 0.5rem;
+        gap: 1.5rem;
     }
 
     .about-me {
         font-size: 36px;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .about-content {
         padding: 0.5rem;
+        margin-top: 0.5rem;
     }
 
     .about-content p {
