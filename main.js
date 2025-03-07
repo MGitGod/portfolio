@@ -70,7 +70,7 @@ function playIntroAnimation() {
         opacity: 1,
         filter: 'blur(0px)',
         ease: 'power2.out'
-    }, '-=0.5')  // 1行目のアニメーションと少し重ねる
+    }, '-=0.5')
     // 2秒待機
     .to({}, { duration: 2 })
     // イントロ全体をフェードアウト
@@ -81,6 +81,7 @@ function playIntroAnimation() {
         onComplete: () => {
             gsap.set('#intro', { display: 'none' });
             navigateToPage('about');
+            currentPage = 'about';  // 現在のページを更新
         }
     });
 }
@@ -150,5 +151,63 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburger.classList.remove('active');
             navLinks.classList.remove('active');
         });
+    });
+});
+
+// ロゴクリックのイベントリスナーを修正
+document.querySelector('.logo').addEventListener('click', () => {
+    // 現在のページをフェードアウト
+    gsap.to('.page', {
+        duration: 0.8,
+        opacity: 0,
+        y: '100%',
+        ease: 'power2.inOut',
+        onComplete: () => {
+            // イントロ要素を表示してアニメーション開始
+            const intro = document.getElementById('intro');
+            gsap.set(intro, { 
+                display: 'flex',
+                opacity: 1 
+            });
+
+            // イントロテキストを初期状態に戻す
+            gsap.set('.text-line', {
+                opacity: 0,
+                filter: 'blur(10px)'
+            });
+
+            // イントロアニメーションを再生
+            const tl = gsap.timeline();
+            
+            tl.to('.text-line:first-child', {
+                duration: 1,
+                opacity: 1,
+                filter: 'blur(0px)',
+                ease: 'power2.out'
+            })
+            .to('.text-line:last-child', {
+                duration: 1,
+                opacity: 1,
+                filter: 'blur(0px)',
+                ease: 'power2.out'
+            }, '-=0.5')
+            .to({}, { duration: 2 })
+            .to('#intro', {
+                duration: 1.5,
+                opacity: 0,
+                ease: 'power2.inOut',
+                onComplete: () => {
+                    gsap.set('#intro', { display: 'none' });
+                    // About ページを表示
+                    gsap.to('#about', {
+                        duration: 0.8,
+                        opacity: 1,
+                        y: '0%',
+                        ease: 'power2.inOut'
+                    });
+                    currentPage = 'about';
+                }
+            });
+        }
     });
 });
