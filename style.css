@@ -45,7 +45,7 @@ nav {
     -webkit-text-stroke: var(--fg-color) 1px;
     line-height: 0.6;
     position: absolute;
-    left: calc(25vw - 150px);
+    left: calc(20vw - 150px);
     top: 50%;
     transform: translateY(-50%) rotate(-90deg);
     transform-origin: center center;
@@ -127,14 +127,13 @@ nav ul li a {
 #about {
   background-color: var(--bg-color);
   display: grid;
-  grid-template-columns: 1fr 1fr;  /* 2列のグリッド */
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: 
       "title content"
       "social social";
   gap: 2rem;
   padding: 2rem 10%;
   min-height: 100vh;
-  align-items: center;
 }
 #work {
   background-color: var(--bg-color);
@@ -460,35 +459,38 @@ nav ul li a {
     }
 
     #about {
-        grid-template-columns: 1fr;  /* 1列に変更 */
+        grid-template-columns: 1fr;
         grid-template-areas: 
             "title"
             "content"
             "social";
-        padding: 4rem 2rem;
-        gap: 1.5rem;
+        padding: 2rem;
+        gap: 1rem;
+        min-height: 100vh;
+        justify-content: center;
     }
 
     .about-me {
         transform: none;
         font-size: 48px;
         text-align: center;
+        margin-bottom: 1rem;
     }
 
     .about-content {
         padding: 1rem;
+        justify-content: flex-start;
     }
 
     .about-content p {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
     }
 
     .social-links {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        justify-content: center;
-        margin-top: 2rem;
+        margin-top: 1rem;
+        padding-bottom: 2rem;
     }
 
     /* 1番目と3番目のh1を非表示 */
@@ -568,17 +570,13 @@ nav ul li a {
     }
 
     #about {
-        padding: 3rem 1rem;
-        gap: 1rem;
+        padding: 1.5rem 1rem;
+        gap: 0.5rem;
     }
 
     .about-me {
         font-size: 36px;
-        margin-bottom: 1.5rem;
-    }
-
-    .about-me h1:nth-child(2) {
-        margin: 0 0 1.5rem 0;
+        margin-bottom: 1rem;
     }
 
     .about-content {
@@ -587,16 +585,18 @@ nav ul li a {
 
     .about-content p {
         font-size: 0.9rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.5;
     }
 
     .social-links {
-        gap: 1rem;
+        gap: 1.5rem;
         margin-top: 1rem;
+        padding-bottom: 1.5rem;
     }
 
     .social-links i {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 }
 
@@ -693,12 +693,29 @@ nav ul li a {
     }
 }
 
-/* About section layout */
+/* About section layout - デスクトップ */
+#about {
+    background-color: var(--bg-color);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+        "title content"
+        "social social";
+    gap: 2rem;
+    padding: 2rem 10%;
+    min-height: 100vh;
+}
+
 .about-content {
     grid-area: content;
     width: 100%;
     padding: 2rem;
     color: var(--fg-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+    height: 100%;
 }
 
 .about-content p {
@@ -719,10 +736,39 @@ nav ul li a {
 
 /* タブレット・スマホ用メディアクエリ */
 @media screen and (max-width: 768px) {
+    #about {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "title"
+            "content"
+            "social";
+        padding: 2rem;
+        gap: 1rem;
+        min-height: 100vh;
+        justify-content: center;
+    }
+
     .about-me {
         transform: none;
         font-size: 48px;
         text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .about-content {
+        padding: 1rem;
+        justify-content: flex-start;
+    }
+
+    .about-content p {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+        padding-bottom: 2rem;
     }
 
     /* 1番目と3番目のh1を非表示 */
@@ -739,11 +785,33 @@ nav ul li a {
 
 /* さらに小さい画面用 */
 @media screen and (max-width: 480px) {
-    .about-me {
-        font-size: 36px;
+    #about {
+        padding: 1.5rem 1rem;
+        gap: 0.5rem;
     }
 
-    .about-me h1:nth-child(2) {
-        margin: 0 0 1.5rem 0;
+    .about-me {
+        font-size: 36px;
+        margin-bottom: 1rem;
+    }
+
+    .about-content {
+        padding: 0.5rem;
+    }
+
+    .about-content p {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .social-links {
+        gap: 1.5rem;
+        margin-top: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .social-links i {
+        font-size: 1.8rem;
     }
 }
