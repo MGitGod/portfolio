@@ -35,18 +35,19 @@ function navigateToPage(targetId) {
                 gsap.to('.work-projects', {
                     opacity: 1,  // フェードイン
                     duration: 0.5,
-                    ease: 'power2.out'
-                });
-
-                // 各タイトルをアニメーション
-                projectTitles.forEach((title, index) => {
-                    gsap.to(title, {
-                        duration: 1,
-                        opacity: 1,
-                        x: 0,
-                        ease: 'bounce.out',  // バウンスエフェクト
-                        delay: 0.2 * index  // タイトルごとに遅延
-                    });
+                    ease: 'power2.out',
+                    onComplete: () => {
+                        // 各タイトルをアニメーション
+                        projectTitles.forEach((title, index) => {
+                            gsap.to(title, {
+                                duration: 1,
+                                opacity: 1,
+                                x: 0,
+                                ease: 'bounce.out',  // バウンスエフェクト
+                                delay: 0.2 * index  // タイトルごとに遅延
+                            });
+                        });
+                    }
                 });
             }
             
