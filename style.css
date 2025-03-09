@@ -263,7 +263,7 @@ nav ul li a {
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
 }
 
 .submit-btn:hover {
@@ -898,8 +898,8 @@ nav ul li a {
 
 @media screen and (max-width: 480px) {
     .work-projects {
-        right: 2%;
-        bottom: 2%;
+        right: 10%;
+        bottom: 10%;
         gap: 0.5rem;  /* スマホサイズでの行間 */
     }
 
