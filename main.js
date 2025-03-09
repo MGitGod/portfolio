@@ -21,6 +21,28 @@ function navigateToPage(targetId) {
         ease: 'power2.inOut',
         delay: 0.3,
         onComplete: () => {
+            // Work ページの場合、プロジェクトタイトルをアニメーション
+            if (targetId === 'work') {
+                const projectTitles = document.querySelectorAll('.project-title');
+                
+                // 初期状態を設定
+                gsap.set(projectTitles, {
+                    opacity: 0,
+                    x: 100
+                });
+
+                // 各タイトルをアニメーション
+                projectTitles.forEach((title, index) => {
+                    gsap.to(title, {
+                        duration: 1,
+                        opacity: 1,
+                        x: 0,
+                        ease: 'bounce.out',  // バウンスエフェクト
+                        delay: 0.2 * index  // タイトルごとに遅延
+                    });
+                });
+            }
+            
             // スキルページの場合、プログレスバーをアニメーション
             if (targetId === 'skill') {
                 // プログレスバーの初期化
