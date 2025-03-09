@@ -75,6 +75,19 @@ function navigateToPage(targetId) {
     currentPage = targetId;
 }
 
+// DOMContentLoadedで初期状態を設定
+document.addEventListener('DOMContentLoaded', () => {
+    // プロジェクトタイトルを非表示に設定
+    const projectTitles = document.querySelectorAll('.project-title');
+    gsap.set(projectTitles, {
+        opacity: 0,
+        x: 100
+    });
+
+    // イントロアニメーションを実行
+    playIntroAnimation();
+});
+
 // イントロアニメーション
 function playIntroAnimation() {
     // 最初に全ての要素の初期状態を設定
@@ -114,9 +127,6 @@ function playIntroAnimation() {
         }
     });
 }
-
-// DOMContentLoadedとloadの両方でイントロアニメーションを確実に実行
-document.addEventListener('DOMContentLoaded', playIntroAnimation);
 
 // ナビゲーションのクリックイベント
 document.querySelectorAll('nav ul li a').forEach(link => {
