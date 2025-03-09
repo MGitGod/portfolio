@@ -11,28 +11,28 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
   background-color: var(--bg-color);
-  overflow: hidden;
+    overflow: hidden;
 }
 nav {
-  width: 100%;
+    width: 100%;
   background: var(--bg-color);
-  padding: 1rem;
-  position: fixed;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 10;
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
 }
 .logo {
   color: var(--accent-color);
-  font-size: 20px;
-  font-weight: bold;
-  margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
   cursor: pointer;
 }
 .accent-color {
@@ -61,48 +61,48 @@ h2 {
     margin-bottom: 1rem;
 }
 nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: flex-end;
-  flex-grow: 1;
-  margin-right: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-right: 20px;
 }
 nav ul li {
-  margin: 0 15px;
+    margin: 0 15px;
 }
 nav ul li a {
   color: var(--fg-color);
-  text-decoration: none;
-  font-size: 18px;
-  cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
 }
 .container {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
 }
 .page {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
   position: fixed;
   top: 0;
-  left: 0;
+    left: 0;
   opacity: 0;
   transform: translateY(100%);
 }
 #intro {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   background-color: var(--bg-color);
   position: fixed;
   top: 0;
@@ -117,8 +117,8 @@ nav ul li a {
 }
 
 .text-line {
-  font-size: 5rem;
-  font-weight: bold;
+    font-size: 5rem;
+    font-weight: bold;
   color: var(--fg-color);
   opacity: 0;
   filter: blur(10px);
@@ -371,7 +371,7 @@ nav ul li a {
     /* Work テキスト */
     /* .work-text {
         width: 100%;
-        left: 0;
+    left: 0;
     } */
 
     /* .work-text text {
@@ -869,6 +869,8 @@ nav ul li a {
     flex-direction: column;  /* 縦方向に配置 */
     gap: 1rem;  /* 行間を調整 */
     align-items: flex-end;  /* 右揃え */
+    opacity: 0;  /* 初期状態で非表示 */
+    transition: opacity 0.5s ease;  /* フェードインのトランジション */
 }
 
 .project-title {
@@ -899,7 +901,7 @@ nav ul li a {
 @media screen and (max-width: 480px) {
     .work-projects {
         right: 10%;
-        bottom: 10%;
+        bottom: 12%;
         gap: 0.5rem;  /* スマホサイズでの行間 */
     }
 
@@ -914,8 +916,5 @@ nav ul li a {
     }
     .work-text text {
         font-size: 150px;
-        /* position: absolute;
-        top: 20%;
-        left: 10%; */
     }
 }

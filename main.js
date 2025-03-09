@@ -31,6 +31,13 @@ function navigateToPage(targetId) {
                     x: 100
                 });
 
+                // プロジェクトタイトルを表示
+                gsap.to('.work-projects', {
+                    opacity: 1,  // フェードイン
+                    duration: 0.5,
+                    ease: 'power2.out'
+                });
+
                 // 各タイトルをアニメーション
                 projectTitles.forEach((title, index) => {
                     gsap.to(title, {
