@@ -6,14 +6,24 @@ function navigateToPage(targetId) {
     if (targetId === currentPage) return;
 
     // 全てのページを非表示にする
+    fadeOutCurrentPage();
+
+    // 新しいページを表示
+    fadeInNewPage(targetId);
+}
+
+// 現在のページをフェードアウト
+function fadeOutCurrentPage() {
     gsap.to('.page', {
         duration: 0.8,
         opacity: 0,
         y: '100%',
         ease: 'power2.inOut'
     });
+}
 
-    // 新しいページを表示
+// 新しいページをフェードイン
+function fadeInNewPage(targetId) {
     gsap.to(`#${targetId}`, {
         duration: 0.8,
         opacity: 1,
@@ -21,59 +31,63 @@ function navigateToPage(targetId) {
         ease: 'power2.inOut',
         delay: 0.3,
         onComplete: () => {
-            // Work ページの場合、プロジェクトタイトルをアニメーション
             if (targetId === 'work') {
-                const projectTitles = document.querySelectorAll('.project-title');
-                
-                // 初期状態を設定
-                gsap.set(projectTitles, {
-                    opacity: 0,
-                    x: 100
-                });
-
-                // プロジェクトタイトルを表示
-                gsap.to('.work-projects', {
-                    opacity: 1,  // フェードイン
-                    duration: 0.5,
-                    ease: 'power2.out',
-                    onComplete: () => {
-                        // 各タイトルをアニメーション
-                        projectTitles.forEach((title, index) => {
-                            gsap.to(title, {
-                                duration: 1,
-                                opacity: 1,
-                                x: 0,
-                                ease: 'bounce.out',  // バウンスエフェクト
-                                delay: 0.2 * index  // タイトルごとに遅延
-                            });
-                        });
-                    }
-                });
-            }
-            
-            // スキルページの場合、プログレスバーをアニメーション
-            if (targetId === 'skill') {
-                // プログレスバーの初期化
-                gsap.set('.progress', {
-                    width: 0
-                });
-                
-                // プログレスバーのアニメーション
-                const progressBars = document.querySelectorAll('.progress');
-                progressBars.forEach((bar, index) => {
-                    const level = bar.getAttribute('data-level');
-                    gsap.to(bar, {
-                        width: `${level * 20}%`,
-                        duration: 1,
-                        ease: 'power2.out',
-                        delay: index * 0.2
-                    });
-                });
+                animateWorkProjects();
+            } else if (targetId === 'skill') {
+                animateSkillProgressBars();
             }
         }
     });
 
     currentPage = targetId;
+}
+
+// Work ページのプロジェクトタイトルをアニメーション
+function animateWorkProjects() {
+    const projectTitles = document.querySelectorAll('.project-title');
+
+    // 初期状態を設定
+    gsap.set(projectTitles, {
+        opacity: 0,
+        x: 100
+    });
+
+    // プロジェクトタイトルを表示
+    gsap.set('.work-projects', {
+        display: 'flex',
+        opacity: 1  // フェードイン
+    });
+
+    // 各タイトルをアニメーション
+    projectTitles.forEach((title, index) => {
+        gsap.to(title, {
+            duration: 1,
+            opacity: 1,
+            x: 0,
+            ease: 'bounce.out',  // バウンスエフェクト
+            delay: 0.2 * index  // タイトルごとに遅延
+        });
+    });
+}
+
+// スキルページのプログレスバーをアニメーション
+function animateSkillProgressBars() {
+    // プログレスバーの初期化
+    gsap.set('.progress', {
+        width: 0
+    });
+
+    // プログレスバーのアニメーション
+    const progressBars = document.querySelectorAll('.progress');
+    progressBars.forEach((bar, index) => {
+        const level = bar.getAttribute('data-level');
+        gsap.to(bar, {
+            width: `${level * 20}%`,
+            duration: 1,
+            ease: 'power2.out',
+            delay: index * 0.2
+        });
+    });
 }
 
 // DOMContentLoadedで初期状態を設定

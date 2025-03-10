@@ -869,8 +869,7 @@ nav ul li a {
     flex-direction: column;  /* 縦方向に配置 */
     gap: 1rem;  /* 行間を調整 */
     align-items: flex-start;  /* 右揃え */
-    opacity: 0;  /* 初期状態で非表示 */
-    transition: opacity 0.5s ease;  /* フェードインのトランジション */
+    display: none;  /* 初期状態で非表示 */
 }
 
 .project-title {
